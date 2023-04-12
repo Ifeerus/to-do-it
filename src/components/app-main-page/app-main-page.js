@@ -1,4 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useDocumentData } from "react-firebase-hooks/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import { useContext } from "react";
+import { Context } from "../../index";
+import nextId from "react-id-generator";
 
 import NavBar from "../nav-bar/nav-bar";
 import AppInfo from "../app-info/app-info";
@@ -6,17 +12,36 @@ import TaskAddForm from "../task-add-form/task-add-form";
 import SearchPanel from "../search-panel/search-panel";
 import AppFilter from "../app-filter/app-filter";
 import TaskList from "../task-lists/task-lists";
+import Error from "../error/error";
 
-function App() {
-    const [testUserdata, setTestUserdata] = useState([
-        { taskId: 1, task: "To create a progect", status: "toDo", priority: 1 },
-        { taskId: 2, task: "To go to the gym", status: "doing", priority: 2 },
-        { taskId: 3, task: "To do labs", status: "done", priority: 3 },
-    ]);
-    const [maxId, setMaxId] = useState(4);
+const AppMainPage = () => {
+    const [testUserdata, setTestUserdata] = useState([]);
+    // const [maxId, setMaxId] = useState(0);
     const [term, setTerm] = useState("");
     const [statusFilter, setStatusFilter] = useState("all");
     const [priorityFilter, setPriorityFilter] = useState("all");
+
+    const { auth, firestore } = useContext(Context);
+    const [user] = useAuthState(auth);
+
+    const sendUserData = async (data) => {
+        await setDoc(doc(firestore, "users", user.uid), {
+            uid: user.uid,
+            displayName: user.displayName,
+            userphotoURL: user.photoURL,
+            tasks: [...data],
+        });
+    };
+
+    const [userDoc, loading, error] = useDocumentData(
+        doc(firestore, "users", user.uid)
+    );
+
+    useEffect(() => {
+        if (!loading) {
+            setTestUserdata(userDoc.tasks);
+        }
+    }, [testUserdata, userDoc, loading]);
 
     const totalTasks = testUserdata.length;
 
@@ -27,39 +52,37 @@ function App() {
             }
             return item;
         });
+        sendUserData(newData);
         setTestUserdata(newData);
     };
 
     const changeStatus = (id, newStatus) => {
-        // const newData = structuredClone(testUserdata);
-        // newData.forEach((item) => {
-        //     if (item.taskId == id) {
-        //         item.status = newStatus;
-        //     }
-        // });
-        // setTestUserdata(newData);
         const newData = testUserdata.map((item) => {
             if (item.taskId === id) {
                 return { ...item, status: newStatus };
             }
             return item;
         });
+        sendUserData(newData);
         setTestUserdata(newData);
     };
 
     const deleteItem = (id) => {
-        setTestUserdata(testUserdata.filter((item) => item.taskId !== id));
+        const newData = testUserdata.filter((item) => item.taskId !== id);
+        sendUserData(newData);
+        setTestUserdata(newData);
     };
 
     const addItem = (task, status, priority) => {
+        const newId = nextId("task-id-");
         const newItem = {
-            taskId: maxId,
+            taskId: newId,
             task,
             status,
             priority,
         };
-
-        setMaxId(maxId + 1);
+        // setMaxId(maxId + 1);
+        sendUserData([...testUserdata, newItem]);
         setTestUserdata([...testUserdata, newItem]);
     };
 
@@ -142,16 +165,20 @@ function App() {
                     statusFilter={statusFilter}
                     priorityFilter={priorityFilter}
                 />
-                <TaskList
-                    totalTasks={totalTasks}
-                    data={visibleData}
-                    onDelete={deleteItem}
-                    onChangePriority={changePriority}
-                    onChangeStatus={changeStatus}
-                />
+                {!error ? (
+                    <TaskList
+                        totalTasks={totalTasks}
+                        data={visibleData}
+                        onDelete={deleteItem}
+                        onChangePriority={changePriority}
+                        onChangeStatus={changeStatus}
+                    />
+                ) : (
+                    <Error />
+                )}
             </div>
         </div>
     );
-}
+};
 
-export default App;
+export default AppMainPage;
