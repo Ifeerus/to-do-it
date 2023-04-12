@@ -1,18 +1,23 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useContext } from "react";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 
 import { Context } from "../../index";
 import logo from "../services/img/logo-no-background.png";
 
 const AppLogIn = () => {
     const { auth, firestore } = useContext(Context);
+    const [users] = useCollectionData(collection(firestore, "users"));
+
+    // console.log(users);
 
     const login = async () => {
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider)
             .then((result) => {
                 const user = result.user;
+
                 const sendUserData = async (data) => {
                     await setDoc(doc(firestore, "users", user.uid), {
                         uid: user.uid,
@@ -21,10 +26,11 @@ const AppLogIn = () => {
                         tasks: [...data],
                     });
                 };
-                sendUserData([]);
+
+                const findUserId = users.find((item) => item.uid === user.uid);
+                return findUserId === undefined ? sendUserData([]) : user;
             })
             .catch((error) => {
-                // Handle Errors here.
                 const errorCode = error.code;
                 return errorCode;
             });
@@ -44,7 +50,7 @@ const AppLogIn = () => {
                         onClick={login}
                     >
                         <svg
-                            class='w-4 h-4 mr-2 -ml-1'
+                            className='w-4 h-4 mr-2 -ml-1'
                             aria-hidden='true'
                             focusable='false'
                             data-prefix='fab'

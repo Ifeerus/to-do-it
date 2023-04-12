@@ -24,6 +24,8 @@ const AppMainPage = () => {
     const { auth, firestore } = useContext(Context);
     const [user] = useAuthState(auth);
 
+    // auth.signOut();
+
     const sendUserData = async (data) => {
         await setDoc(doc(firestore, "users", user.uid), {
             uid: user.uid,
