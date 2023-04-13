@@ -26,7 +26,7 @@ const TaskList = ({
     // task={item.task} status={item.status} priority={item.priority} ===== {...item}
 
     return (
-        <div className='mt-5 mx-2 md:mx-0 md:w-[45rem] h-max pb-4 bg-white shadow-lg rounded-lg'>
+        <div className='mt-5 mx-2 mb-2 md:mx-0 md:w-[45rem] h-max pb-4 bg-white shadow-lg rounded-lg'>
             <div className='bg-gray-100 w-full px-4 py-4 rounded-t-lg mb-5 flex justify-between'>
                 <p className='text-lg font-medium text-gray-900'>All tasks: </p>
                 <p className='text-lg font-medium text-gray-900'>
