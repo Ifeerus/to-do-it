@@ -32,7 +32,7 @@ const AppLogIn = () => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                return errorCode;
+                console.log(errorCode);
             });
     };
 
