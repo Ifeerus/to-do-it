@@ -150,14 +150,14 @@ const AppMainPage = () => {
     return (
         <div className='app my-0 mx-auto max-w-5xl bg-gray-200'>
             <NavBar />
-            <div className='flex flex-row items-start justify-between'>
+            <div className='flex flex-col items-center mx-2 md:mx-0 md:flex-row md:items-start justify-between'>
                 <AppInfo />
                 <TaskAddForm onAddItem={addItem} />
             </div>
-            <div className='mt-5 h-16 flex flex-row justify-center items-center pl-4 pr-4 bg-white shadow-lg rounded-lg'>
+            <div className='mt-5 mx-2 md:mx-0 h-16 flex flex-row justify-center items-center pl-4 pr-4 bg-white shadow-lg rounded-lg'>
                 <SearchPanel onUpdateSearch={onUpdateSearch} />
             </div>
-            <div className='relative flex justify-between'>
+            <div className='relative flex flex-col md:flex-row md:justify-between'>
                 <AppFilter
                     onStatusFilterSelect={onStatusFilterSelect}
                     onPriorityFilterSelect={onPriorityFilterSelect}

@@ -22,13 +22,13 @@ const TaskAddForm = ({ onAddItem }) => {
     };
 
     return (
-        <div className='flex justify-center mt-5 h-64 w-[45rem] bg-white shadow-lg rounded-lg'>
+        <div className='flex justify-center mt-5 w-full md:h-64 md:w-[45rem] bg-white shadow-lg rounded-lg'>
             <form
                 onSubmit={(e) => onSubmit(e)}
                 className='flex flex-col justify-around items-center w-5/6'
             >
                 <textarea
-                    className='resize-none h-full rounded-md w-full mt-3 p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none appearance-none leading-6 text-slate-900 placeholder-slate-400 ring-1 ring-slate-400 shadow-sm'
+                    className='resize-none h-56 md:h-full rounded-md w-full mt-3 p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none appearance-none leading-6 text-slate-900 placeholder-slate-400 ring-1 ring-slate-400 shadow-md'
                     placeholder='I want to do...'
                     onChange={(e) => onValueChange(e.target)}
                     name='task-msg'
@@ -64,7 +64,7 @@ const TaskAddForm = ({ onAddItem }) => {
                         </svg>
                     </div>
                 </div>
-                <button className='text-sm flex self-end group items-center justify-center my-3 px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2'>
+                <button className='text-md flex self-end group items-center justify-center my-3 px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2'>
                     New
                     <svg
                         width='20'

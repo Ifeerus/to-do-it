@@ -24,7 +24,7 @@ const AppFilter = ({
                     onStatusFilterSelect(name);
                     onPriorityFilterSelect(name);
                 }}
-                className={`text-sm w-full h-8 mb-3 ${clazz}`}
+                className={`text-md w-full h-8 mb-3 ${clazz}`}
             >
                 {label}
             </button>
@@ -48,7 +48,7 @@ const AppFilter = ({
                     setActiveStatus(name);
                     onStatusFilterSelect(name);
                 }}
-                className={`text-sm w-1/3 h-8 ${clazz}`}
+                className={`text-md w-1/3 h-8 ${clazz}`}
             >
                 {label}
             </button>
@@ -72,7 +72,7 @@ const AppFilter = ({
                     setActivePriority(name);
                     onPriorityFilterSelect(name);
                 }}
-                className={`text-sm w-full h-8 mb-2 ${clazz}`}
+                className={`text-md w-full h-8 mb-2 ${clazz}`}
             >
                 {label}
             </button>
@@ -80,7 +80,7 @@ const AppFilter = ({
     });
 
     return (
-        <div className='sticky top-5 w-64 h-60 py-5 my-5 flex flex-col items-center justify-around bg-white shadow-lg rounded-lg'>
+        <div className='md:sticky md:top-5 mx-2 md:mx-0 md:w-64 md:h-60 py-5 my-5 flex flex-col items-center justify-around bg-white shadow-lg rounded-lg'>
             <div className='w-5/6 mb-3'>
                 {showAllBtn}
                 <div className='flex w-full'>{statusBtns}</div>

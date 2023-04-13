@@ -1,11 +1,14 @@
 const TaskListSkeleton = () => {
     return (
-        <div className='bg-white px-4 py-4 rounded-md mx-4'>
-            <div role='status' className='flex justify-between animate-pulse'>
+        <div className='bg-white px-4 py-4 rounded-md mx-2 md:mx-4'>
+            <div
+                role='status'
+                className='flex flex-col md:flex-row justify-between animate-pulse'
+            >
                 <div>
-                    <div className='h-3 bg-gray-200 rounded-full w-[330px] mb-2.5'></div>
-                    <div className='h-3 bg-gray-200 rounded-full w-[300px] mb-2.5'></div>
-                    <div className='h-3 bg-gray-200 rounded-full w-[360px]'></div>
+                    <div className='h-3 bg-gray-200 rounded-full md:w-[330px] mb-2.5'></div>
+                    <div className='h-3 bg-gray-200 rounded-full md:w-[300px] mb-2.5'></div>
+                    <div className='h-3 bg-gray-200 rounded-full md:w-[360px] mb-5 md:mb-0'></div>
                 </div>
                 <div className='flex space-x-8 justify-center items-center'>
                     <div className='flex justify-between'>

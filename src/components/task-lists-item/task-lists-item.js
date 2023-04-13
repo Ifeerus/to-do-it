@@ -15,14 +15,14 @@ const TaskListItem = ({
     };
 
     return (
-        <li className='bg-white border border-indigo-500 px-4 py-4 rounded-md mt-5 flex justify-between mx-4'>
+        <li className='bg-white border border-indigo-500 px-4 py-4 rounded-md mt-5 flex flex-col md:flex-row justify-between mx-4'>
             <span
-                className='text-lg align-middle max-w-[25rem] mb-3'
+                className='text-lg align-middle overflow-auto h-28 scr md:h-auto md:max-w-[25rem] mb-3'
                 style={{ textDecoration: doneTaskStyle() }}
             >
                 {task}
             </span>
-            <form className='flex space-x-8 justify-center items-center'>
+            <form className='flex flex-col space-y-4 md:space-y-0 md:flex-row space-x-8 justify-center items-end md:items-center'>
                 <PriorityBtns
                     taskId={taskId}
                     priority={priority}

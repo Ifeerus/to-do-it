@@ -10,7 +10,7 @@ const SearchPanel = (props) => {
     };
 
     return (
-        <form className='group relative w-[60rem]'>
+        <form className='group relative w-full md:w-[60rem]'>
             <svg
                 width='20'
                 height='20'
@@ -25,7 +25,7 @@ const SearchPanel = (props) => {
                 />
             </svg>
             <input
-                className='focus:ring-2 focus:ring-indigo-500 focus:outline-none appearance-none w-full leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-400 shadow-sm'
+                className='focus:ring-2 focus:ring-indigo-500 focus:outline-none appearance-none w-full leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-400 shadow-md'
                 type='text'
                 placeholder='Search a task...'
                 value={term}

@@ -8,8 +8,8 @@ const NavBar = () => {
     const [user] = useAuthState(auth);
 
     return (
-        <div className='nav mt-4 h-14 flex flex-row justify-between items-center pl-4 pr-4 bg-white shadow-lg rounded-lg text-gray-900 '>
-            <div className='user h-8 flex flex-row justify-between items-center'>
+        <div className='nav mx-2 lg:mx-0 mt-4 h-14 flex flex-row justify-between items-center pl-4 pr-4 bg-white shadow-lg rounded-lg text-gray-900'>
+            <div className='user text-xs sm:text-sm h-8 flex flex-row justify-between items-center'>
                 <img
                     className='w-9 h-9 fill-current rounded-full border-4 border-white box-content shadow mr-2'
                     src={user.photoURL}
@@ -19,7 +19,7 @@ const NavBar = () => {
             </div>
             <button
                 onClick={() => auth.signOut()}
-                className='text-sm flex items-center justify-center h-9 px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2'
+                className='text-xs sm:text-sm flex items-center justify-center h-9 px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2'
             >
                 Log Out
                 <svg
