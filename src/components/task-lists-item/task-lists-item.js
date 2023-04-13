@@ -15,7 +15,7 @@ const TaskListItem = ({
     };
 
     return (
-        <li className='bg-white px-4 py-4 rounded-md mt-5 flex justify-between'>
+        <li className='bg-white border border-indigo-500 px-4 py-4 rounded-md mt-5 flex justify-between mx-4'>
             <span
                 className='text-lg align-middle max-w-[25rem] mb-3'
                 style={{ textDecoration: doneTaskStyle() }}

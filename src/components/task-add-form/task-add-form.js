@@ -22,13 +22,13 @@ const TaskAddForm = ({ onAddItem }) => {
     };
 
     return (
-        <div className='flex justify-center mt-5 h-64 w-[45rem] rounded-2xl bg-slate-100 shadow-lg text-black bg-primary-light-bg2'>
+        <div className='flex justify-center mt-5 h-64 w-[45rem] bg-white shadow-lg rounded-lg'>
             <form
                 onSubmit={(e) => onSubmit(e)}
                 className='flex flex-col justify-around items-center w-5/6'
             >
                 <textarea
-                    className='resize-none h-full rounded-md w-full mt-3 p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none leading-6 text-slate-900 placeholder-slate-400 ring-1 ring-slate-200 shadow-sm'
+                    className='resize-none h-full rounded-md w-full mt-3 p-3 focus:ring-2 focus:ring-indigo-500 focus:outline-none appearance-none leading-6 text-slate-900 placeholder-slate-400 ring-1 ring-slate-400 shadow-sm'
                     placeholder='I want to do...'
                     onChange={(e) => onValueChange(e.target)}
                     name='task-msg'
@@ -41,7 +41,7 @@ const TaskAddForm = ({ onAddItem }) => {
                         value={priority}
                         onChange={(e) => onValueChange(e.target)}
                         required
-                        className='block appearance-none w-full bg-white border border-slate-200 hover:cursor-pointer hover:border-blue-500 tab px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline'
+                        className='block appearance-none w-full bg-white border-2 border-slate-400 hover:cursor-pointer hover:border-indigo-500 focus:border-indigo-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline'
                     >
                         <option value=''>None</option>
                         <option value='3' className='text-green-600'>
@@ -64,13 +64,13 @@ const TaskAddForm = ({ onAddItem }) => {
                         </svg>
                     </div>
                 </div>
-                <button className='hover:bg-blue-400 self-end group flex items-center rounded-md bg-blue-500 text-white text-sm font-medium my-3 pl-2 pr-3 py-2 shadow-sm'>
+                <button className='text-sm flex self-end group items-center justify-center my-3 px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2'>
                     New
                     <svg
                         width='20'
                         height='20'
                         fill='currentColor'
-                        className='ml-2'
+                        className='ml-[5px]'
                         aria-hidden='true'
                     >
                         <path d='M10 5a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H6a1 1 0 1 1 0-2h3V6a1 1 0 0 1 1-1Z' />

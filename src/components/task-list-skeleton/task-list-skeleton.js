@@ -1,6 +1,6 @@
 const TaskListSkeleton = () => {
     return (
-        <div className='bg-white px-4 py-4 rounded-md'>
+        <div className='bg-white px-4 py-4 rounded-md mx-4'>
             <div role='status' className='flex justify-between animate-pulse'>
                 <div>
                     <div className='h-3 bg-gray-200 rounded-full w-[330px] mb-2.5'></div>

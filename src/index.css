@@ -12,14 +12,14 @@
 }
 
 body {
-    margin: 20px 0;
     font-family: "Roboto", sans-serif;
+    background-color: rgb(229 231 235 / 1);
 }
 
 .filter-btn-active {
-    @apply bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-1 border border-blue-500 hover:border-transparent;
+    @apply font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border-2 border-indigo-500 rounded leading-5 shadow transition duration-150 ease-in-out w-full bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2;
 }
 
 .filter-btn {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 border border-blue-700;
+    @apply font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-indigo-500 rounded leading-5 shadow transition duration-150 ease-in-out w-full bg-white hover:bg-slate-100 text-indigo-500 focus:outline-none focus-visible:ring-2;
 }

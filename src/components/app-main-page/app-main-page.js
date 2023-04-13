@@ -16,15 +16,12 @@ import Error from "../error/error";
 
 const AppMainPage = () => {
     const [testUserdata, setTestUserdata] = useState([]);
-    // const [maxId, setMaxId] = useState(0);
     const [term, setTerm] = useState("");
     const [statusFilter, setStatusFilter] = useState("all");
     const [priorityFilter, setPriorityFilter] = useState("all");
 
     const { auth, firestore } = useContext(Context);
     const [user] = useAuthState(auth);
-
-    // auth.signOut();
 
     const sendUserData = async (data) => {
         await setDoc(doc(firestore, "users", user.uid), {
@@ -151,13 +148,13 @@ const AppMainPage = () => {
     );
 
     return (
-        <div className='app my-0 mx-auto max-w-5xl'>
+        <div className='app my-0 mx-auto max-w-5xl bg-gray-200'>
             <NavBar />
             <div className='flex flex-row items-start justify-between'>
                 <AppInfo />
                 <TaskAddForm onAddItem={addItem} />
             </div>
-            <div className="mt-5 h-16 flex flex-row justify-center items-center pl-4 pr-4 rounded-2xl bg-slate-100 shadow-lg text-black bg-primary-light-bg2'">
+            <div className='mt-5 h-16 flex flex-row justify-center items-center pl-4 pr-4 bg-white shadow-lg rounded-lg'>
                 <SearchPanel onUpdateSearch={onUpdateSearch} />
             </div>
             <div className='relative flex justify-between'>

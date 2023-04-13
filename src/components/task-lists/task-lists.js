@@ -26,10 +26,12 @@ const TaskList = ({
     // task={item.task} status={item.status} priority={item.priority} ===== {...item}
 
     return (
-        <div className='mt-5 w-[45rem] h-max py-4 px-4 rounded-2xl bg-slate-100 shadow-lg text-black bg-primary-light-bg2'>
-            <div className='bg-white px-4 py-4 rounded-md mb-5 flex justify-between'>
-                <p className='inline'>All tasks: </p>
-                <p className='inline'>{totalTasks}</p>
+        <div className='mt-5 w-[45rem] h-max pb-4 bg-white rounded-lg'>
+            <div className='bg-gray-100 w-full px-4 py-4 rounded-t-lg mb-5 flex justify-between'>
+                <p className='text-lg font-medium text-gray-900'>All tasks: </p>
+                <p className='text-lg font-medium text-gray-900'>
+                    {totalTasks}
+                </p>
             </div>
             <ul>{data.length !== 0 ? elements : <TaskListSkeleton />}</ul>
         </div>

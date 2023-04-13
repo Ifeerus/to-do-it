@@ -16,7 +16,7 @@ const StatusSelect = ({ taskId, status, onChangeStatus }) => {
                 value={activeStatus}
                 onChange={changeActiveStatus}
                 required
-                className='block appearance-none w-full bg-white border border-gray-400 hover:cursor-pointer hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline'
+                className='block appearance-none w-full bg-white border-2 border-slate-400 hover:cursor-pointer hover:border-indigo-500 focus:border-indigo-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline'
             >
                 <option value='toDo'>To Do</option>
                 <option value='doing'>Doing</option>

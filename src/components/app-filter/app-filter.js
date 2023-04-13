@@ -76,21 +76,11 @@ const AppFilter = ({
             >
                 {label}
             </button>
-            // <div className='mb-2 flex items-center hover:text-red-400'>
-            //     <div className='w-4 h-4 mr-3 cursor-pointer bg-red-400 rounded-full'></div>
-            //     <span className='cursor-pointer text-red-400'>{label}</span>
-            // </div>
         );
     });
 
     return (
-        <div className='sticky top-5 w-64 h-64 py-5 mt-5 flex flex-col items-center justify-around rounded-2xl bg-slate-100 shadow-lg text-black bg-primary-light-bg2'>
-            <div className='w-5/6 mb-3'>
-                <p className='text-left text-3xl font-medium tracking-wide'>
-                    Filter
-                </p>
-            </div>
-
+        <div className='sticky top-5 w-64 h-60 py-5 my-5 flex flex-col items-center justify-around bg-white shadow-lg rounded-lg'>
             <div className='w-5/6 mb-3'>
                 {showAllBtn}
                 <div className='flex w-full'>{statusBtns}</div>
