@@ -91,9 +91,7 @@ const AppMainPage = () => {
         }
 
         return items.filter((item) => {
-            return (
-                item.task.toLowerCase().startsWith(term.toLowerCase()) === true
-            );
+            return item.task.indexOf(term) > -1;
         });
     };
 
